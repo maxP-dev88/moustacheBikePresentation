@@ -1,0 +1,93 @@
+/* Split the screen in half */
+h1 {
+    text-align: center;
+    color: white;
+}
+h2 {
+    margin: auto;
+}
+li {
+    list-style-type: none;
+}
+img {
+    padding-left: 20px;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+}
+
+/* Control the left side */
+.left {
+    left: 0;
+    background-color: #fcfafa;
+}
+/* Control the right side */
+.right {
+    right: 0;
+    background-color: #fffbfb;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+    width: 150px;
+    border-radius: 50%;
+}
+.boutonVelo {
+    font-family: 'Viaoda Libre', cursive;
+    font-size:50px;
+    width:100%;
+    height:27.7vh;
+    line-height: 30vh;
+    text-align: center;
+    background-color: gray;
+    color:white;
+}
+.boutonVelo:hover {
+    background-color: #3b3939;
+}
+.ImgVelo {
+    width: 100%;
+    height: 40vh;
+    text-align: center;
+    background-image: url("moustache.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.Descritpion {
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Viaoda Libre', sans Serif;
+    color: white;
+    background-color: #3d3b3b;
+}
+.Caractéristique {
+    width: 100%;
+    height: 50vh;
+    text-align: center;
+    font-size: x-large;
+    font-family: 'Roboto', sans Serif;
+    color: #232222;
+    line-height: 2em;
+    background-color: darkgrey;
+    padding-top: 40px;
+}
+li {
+    list-style-type: none;
+}

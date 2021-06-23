@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Moustache bike</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="Moustache.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Viaoda+Libre&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+    <div class="split left">
+        <img src="moustache.png" alt="logo">
+        <div class="boutonVelo" v-for="velo in velos" @click="veloMove(velo);">{{velo.model}}</div>
+    </div>
+
+    <div class="split right">
+
+        <div class="ImgVelo" :style="{ 'backgroundImage': 'url(' + veloSelected.image + ')' }"></div>
+
+        <div class="Descritpion" :style="{'backgroundColor': veloSelected.fond}">
+            <h2>Description</h2>
+            <p>{{veloSelected.description}}</p>
+        </div>
+
+        <div class="Caractéristique">
+            <h2>Caractéristique</h2>
+            <ol>
+                <li>Moteur : {{veloSelected.moteur}}</li>
+
+                <li>Transmission : {{veloSelected.transmission}}</li>
+
+                <li>Roue et pneu : {{veloSelected.Roue}}</li>
+
+                <li>Tige Selle : {{veloSelected.Selle}}</li>
+
+                <li>Prix : {{veloSelected.prix}}</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            velos: [
+                {model:"lundi 27.1", image: "moustache1.jpg", moteur: "bosh Performance Line 400Wh", Roue: "Roue Moustache 27.5 pneus Schwalbe Super Moto X", transmission: "Shimano Deore 10 vitesse", Selle: "suspendue", description:"Lundi 27.1 un velo polyvalent Made in VOSGES", prix:"2999€", fond: "#000000"},
+                {model:"lundi 27.3", image: "moustache2.jpg", moteur: "bosh Performance Line 500Wh", Roue: "Roue Moustache 27.5 pneus Schwalbe Super Moto X", transmission: "Shimano Deore 10 vitesse", Selle: "suspendue", description:"Lundi 27.3 plus puissant et toujours Made in VOSGES", prix:"3399€", fond: "#dcc31e"},
+                {model:"lundi 27.5", image: "moustache3.jpg", moteur: "bosh Performance Line 500Wh", Roue: "Roue Moustache 27.5 pneus Schwalbe Super Moto X", transmission: "System Enviolo TR", Selle: "suspendue", description:"Lundi 27.5 la Rolce Royce des Vtc Made in VOSGES", prix:"3899€", fond: "#f97339"},
+            ],
+            veloSelected: {},
+        },
+        methods: {
+            veloMove: function(velo){
+                this.veloSelected = velo;
+            },
+        },
+        created: function(){
+            this.veloSelected = this.velos[0];
+        },
+
+    })
+</script>
+</body>
+</html>
