@@ -19,24 +19,24 @@
 <body>
 
 <div id="app">
-    <div class="split left">
+    <div class="split left"> <!--div partie de gauche-->
         <img src="moustache.png" alt="logo">
-        <div class="boutonVelo" v-for="velo in velos" @click="veloMove(velo);">{{velo.model}}</div>
+        <div class="boutonVelo" v-for="velo in velos" @click="veloMove(velo);">{{velo.model}}</div> <!--v-for permet de duppliquer les datas sous forme de bouttons, click appel la method veloMove {{renvoie une valeur textuel}}-->
     </div>
 
-    <div class="split right">
+    <div class="split right"> <!--div partie de droite-->
 
-        <div class="ImgVelo" :style="{ 'backgroundImage': 'url(' + veloSelected.image + ')' }"></div>
+        <div class="ImgVelo" :style="{ 'backgroundImage': 'url(' + veloSelected.image + ')' }"></div> <!--binding :style permet le changement du backgroundImage-->
 
-        <div class="Descritpion" :style="{'backgroundColor': veloSelected.fond}">
+        <div class="Descritpion" :style="{'backgroundColor': veloSelected.fond}"> <!--binding permettant de changer le backgroundColor lors de la selection d'un objet afin d'avoir un raccord avec la couleur du velo-->
             <h2>Description</h2>
-            <p>{{veloSelected.description}}</p>
+            <p>{{veloSelected.description}}</p><!--renvoie une valeur textuelle rattaché au data-->
         </div>
 
         <div class="Caractéristique">
             <h2>Caractéristique</h2>
             <ol>
-                <li>Moteur : {{veloSelected.moteur}}</li>
+                <li>Moteur : {{veloSelected.moteur}}</li><!--même principe renvoie valeur textuelle contenue dans les data-->
 
                 <li>Transmission : {{veloSelected.transmission}}</li>
 
@@ -53,20 +53,20 @@
     new Vue({
         el: '#app',
         data: {
-            velos: [
+            velos: [ /* data d'un velo il y en à 3 donc trois ligne de data*/
                 {model:"lundi 27.1", image: "moustache1.jpg", moteur: "bosh Performance Line 400Wh", Roue: "Roue Moustache 27.5 pneus Schwalbe Super Moto X", transmission: "Shimano Deore 10 vitesse", Selle: "suspendue", description:"Lundi 27.1 un velo polyvalent Made in VOSGES", prix:"2999€", fond: "#000000"},
                 {model:"lundi 27.3", image: "moustache2.jpg", moteur: "bosh Performance Line 500Wh", Roue: "Roue Moustache 27.5 pneus Schwalbe Super Moto X", transmission: "Shimano Deore 10 vitesse", Selle: "suspendue", description:"Lundi 27.3 plus puissant et toujours Made in VOSGES", prix:"3399€", fond: "#dcc31e"},
                 {model:"lundi 27.5", image: "moustache3.jpg", moteur: "bosh Performance Line 500Wh", Roue: "Roue Moustache 27.5 pneus Schwalbe Super Moto X", transmission: "System Enviolo TR", Selle: "suspendue", description:"Lundi 27.5 la Rolce Royce des Vtc Made in VOSGES", prix:"3899€", fond: "#f97339"},
             ],
-            veloSelected: {},
+            veloSelected: {},//data vide déclaré dans les fonctions suivantes
         },
         methods: {
-            veloMove: function(velo){
+            veloMove: function(velo){ //function permettant de données un valeur a la data veloSelected
                 this.veloSelected = velo;
             },
         },
-        created: function(){
-            this.veloSelected = this.velos[0];
+        created: function(){ //fonction d'initialisation prenant la deuxième ligne du tableau de données comme référence
+            this.veloSelected = this.velos[1];
         },
 
     })
